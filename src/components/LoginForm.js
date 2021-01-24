@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, TextInput, View, StyleSheet } from 'react-native';
+import { Text, TextInput, View, StyleSheet, TouchableOpacity } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import Button from './Button';
 
@@ -27,10 +27,10 @@ const LoginForm = ({ onLogin }) => {
                 style={styles.input}
                 secureTextEntry
             />
-            <View style={styles.checkboxRow}>
+            <TouchableOpacity style={styles.checkboxRow} onPress={() => setSaveData(!saveData)} activeOpacity={1}>
                 <CheckBox value={saveData} onValueChange={setSaveData} animationDuration={0} />
                 <Text style={styles.checkboxLabel}>Remember me</Text>
-            </View>
+            </TouchableOpacity>
             <Button text="Log in" onPress={onLoginPress} style={styles.button} />
         </>
     )
